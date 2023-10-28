@@ -10,11 +10,11 @@ spec:
   rules:
   - host: app.ostepopp.site
     http:
-    paths:
-    - path: /kubbis
-      pathType: Prefix
-      backend:
-        service:
-          name: kubbis-service
-          port:
-            number: 80
+      paths:
+      - path: /kubbis
+        pathType: Prefix
+        backend:
+          service:
+            name: kubbis-service
+            port:
+              number: 80
