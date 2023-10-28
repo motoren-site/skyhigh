@@ -37,6 +37,9 @@ jobs:
     - name: Deploy to Kubernetes
       run: kubectl apply -f deployment.yaml
 
+    - name: Expose service
+      run: kubectl apply -f service.yaml
+
 
   
       
