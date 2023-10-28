@@ -1,23 +1,23 @@
-name: reactapp
-on:
-  push:
-    branches:
-      - main
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Git Checkout
-      uses: actions/checkout@v1
+# Use an official Node.js runtime as a parent image
+FROM node:14-alpine
 
-    - name: Login to Digital Ocean Registry
-      uses: docker/login-action@v1
-      with:
-        registry: registry.digitalocean.com
-        username: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
-        password: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
+# Set the working directory to /app
+WORKDIR /app
 
-    - name: Build latest
-      run: docker build -t registry.digitalocean.com/containers/YOUR_APP:$(echo $GITHUB_SHA | head -c7) .
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
 
-    ##Add step for pusing to registry.digitalocean.com/containers
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application code to the container
+COPY . .
+
+# Build the React app
+RUN npm run build
+
+# Expose port 3000 for the app
+EXPOSE 3000
+
+# Start the app
+CMD ["npm", "start"]
