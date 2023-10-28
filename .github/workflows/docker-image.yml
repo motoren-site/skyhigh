@@ -34,7 +34,7 @@ jobs:
         # The Kubernetes namespace to operate under.
         namespace: apps
         # The kubectl version to use.
-        version: # optional, default is 1.21.9
+        version: 1.21.9 # optional, default is 1.21.9
 
   
       
