@@ -1,4 +1,4 @@
-name: Build and push container to docker repo containers @ DO
+name: reactapp
 on:
   push:
     branches:
