@@ -40,6 +40,9 @@ jobs:
     - name: Expose service
       run: kubectl apply -f service.yaml
 
+    - name: Kubbis ingress
+      run: kubectl apply -f ingress.yaml
+
 
   
       
