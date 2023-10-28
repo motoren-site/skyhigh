@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: kubbis
   labels:
-    app: rkubbis
+    app: kubbis
 spec:
   replicas: 3
   selector:
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: kubbis
-        image: node:12-alpine
+        image: registry.digitalocean.com/containers/kubbis:latest
         ports:
         - containerPort: 80
