@@ -24,5 +24,7 @@ jobs:
 
     - name: Build latest
       run: docker build -t registry.digitalocean.com/containers/kubbis:$(echo $GITHUB_SHA | head -c7) .
+
+  
       
 

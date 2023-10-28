@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-app-deployment
+  labels:
+    app: react-kubbis
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: react-kubbis
+  template:
+    metadata:
+      labels:
+        app: react-kubbis
+    spec:
+      containers:
+      - name: react-kubbis
+        image: node:12-alpine
+        ports:
+        - containerPort: 80
