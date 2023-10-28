@@ -25,6 +25,17 @@ jobs:
     - name: Build latest
       run: docker build -t registry.digitalocean.com/containers/kubbis:$(echo $GITHUB_SHA | head -c7) .
 
+    - name: DigitalOcean Kubernetes
+      uses: matootie/dokube@v1.4.0
+      with:
+        personalAccessToken: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
+        clusterName: k8s-bergen
+        expirationTime: # optional, default is 600
+        # The Kubernetes namespace to operate under.
+        namespace: apps
+        # The kubectl version to use.
+        version: # optional, default is 1.21.9
+
   
       
 
