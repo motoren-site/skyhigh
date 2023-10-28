@@ -32,7 +32,7 @@ jobs:
         version: 1.21.9 # optional, default is 1.21.9
 
     - name: Push image to DO Container Registry 
-      run: docker push registry.digitalocean.com/containers/kubbis:latest
+      run: docker push registry.digitalocean.com/containers/kubbis:$(echo $GITHUB_SHA | head -c7)
 
   
       
